@@ -13,10 +13,11 @@ Start:
 ; Meaning the entire RAM and also the entire TIA registers
     lda #0  ; A = 0
     ldx #$FF  ; X = #$FF
+    sta $FF ; Make sure $FF is 0 before the loop starts
     
 MemLoop:
-    sta $0,X  ; Store the value of A inside memory address $0 + X
     dex ; X--
+    sta $0,X  ; Store the value of A inside memory address $0 + X
     bne MemLoop ; Loop until X is equal to zero (z-flag is set)
 
 ; Fill the ROM size to exactly 4KB
