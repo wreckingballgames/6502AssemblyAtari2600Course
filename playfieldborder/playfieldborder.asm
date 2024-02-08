@@ -46,7 +46,7 @@ StartFrame:
     stx PF0 ; $0D
     stx PF1 ; $0E
     stx PF2 ; $0F
-    REPEAT 7
+    REPEAT 5
         sta WSYNC
     REPEND
 
@@ -81,7 +81,7 @@ StartFrame:
     ldx #$FF
     stx PF1
     stx PF2
-    REPEAT 7
+    REPEAT 5
       sta WSYNC
     REPEND
 
