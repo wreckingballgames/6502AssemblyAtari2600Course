@@ -51,29 +51,31 @@ StartFrame:
     REPEND
 
     ; Set the PF0 to 1110 (LSB first) and PF1-PF2 as 1111 1111
-    ldx #$FE
+    ldx #$E0
     stx PF0
 
     ldx #$FF
     stx PF1
     stx PF2
-    REPEAT 7
+    REPEAT 5
       sta WSYNC
     REPEND
 
     ; Set the next 164 lines only with PF0 third bit enabled
-    ldx #20
+    ldx #$60
     stx PF0
 
     ldx #$00
     stx PF1
+
+    ldx #$80
     stx PF2
     REPEAT 164
       sta WSYNC
     REPEND
 
     ; Set the PF0 to 1110 (LSB first) and PF1-PF2 as 1111 1111
-    ldx #$FE
+    ldx #$E0
     stx PF0
 
     ldx #$FF
@@ -83,12 +85,12 @@ StartFrame:
       sta WSYNC
     REPEND
 
-    ; Skip 7 vertical lines with no PF set
+    ; Skip 5 vertical lines with no PF set
     ldx #$00
     stx PF0
     stx PF1
     stx PF2
-    REPEAT 7
+    REPEAT 5
       sta WSYNC
     REPEND
 
